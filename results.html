@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Comparison Results</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            font-size: 2.5em;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slide-down 0.5s ease-out;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 20px;
+            animation: fade-in 1s ease-in;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            animation: fade-in 1s ease-in;
+        }
+
+        .grid-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+
+        @keyframes slide-down {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Sorting Algorithm Comparison Results</h1>
+    <div class="container">
+        <h2>Individual Algorithm Plots</h2>
+        <div class="grid-container">
+            {% for image in images %}
+                <div class="grid-item">
+                    <img src="{{ url_for('static', filename=image) }}" alt="Sorting Plot">
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('index') }}">Go Back</a>
+    </div>
+</body>
+</html>
